@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Actividad: Repartidor a Domicilio</title>
+   <link rel="stylesheet" href="/CSS/style.css" />
+</head>
+<body>
+
+  <div class="card" role="application" aria-labelledby="titulo">
+    <div class="panel-datos" aria-live="polite">
+      <h1 id="titulo">Actividad: Repartidor a domicilio</h1>
+
+      <div class="info" id="tarjeta-repartidor" aria-hidden="false">
+        <!-- Aquí se mostrará la info del repartidor -->
+        <div class="fila"><div class="label">Nombre</div><div class="valor" id="nombreValor">—</div></div>
+        <div class="fila"><div class="label">Pedidos completados</div><div class="valor" id="pedidosValor">0</div></div>
+        <div class="fila"><div class="label">Clasificación promedio</div><div class="valor" id="clasificacionValor">5.0</div></div>
+        <div class="fila"><div class="label">Activo</div><div class="valor"><span id="activoBadge" class="activo-badge activo-true">ACTIVO</span></div></div>
+      </div>
+
+      <div class="controles" role="region" aria-label="Controles">
+        <button id="btnPresentarse" class="small">👋 Presentarse</button>
+        <button id="btnToggleActivo" class="small secondary">🔁 Activar/Desactivar</button>
+      </div>
+
+      <footer class="note">Instrucciones: Usa los controles de la derecha para simular pedidos y calificaciones.</footer>
+    </div>
+
+    <div class="panel-operaciones" aria-live="polite">
+      <h2>Operaciones</h2>
+
+      <div class="control-row" aria-label="Formulario para completar pedido">
+        <label for="inputNombre">1. Nombre del repartidor</label>
+        <input id="inputNombre" type="text" placeholder="Ej: Juan Pérez" value="Juan Pérez" />
+
+        <div style="height:8px"></div>
+
+        <label for="inputCalificacion">2. Calificación del pedido (1 - 5)</label>
+        <div class="row">
+          <input id="inputCalificacion" type="number" min="1" max="5" value="5" />
+          <select id="selectCompletado" aria-label="Pedido completado o no">
+            <option value="true">✅ Pedido completado</option>
+            <option value="false">❌ Pedido NO completado</option>
+          </select>
+        </div>
+
+        <div style="height:10px"></div>
+        <div class="row">
+          <button id="btnCompletar">📦 Registrar pedido</button>
+          <button id="btnReset" class="secondary">♻️ Reset / Inicializar</button>
+        </div>
+      </div>
+
+      <div class="control-row" aria-label="Registro de eventos">
+        <label>Registro (log)</label>
+        <div id="logArea" class="log" aria-live="polite" role="log">Aquí aparecerán las acciones...</div>
+      </div>
+
+    </div>
+    <div style="height:10px"></div>
+<div class="row">
+  <button id="btnCompletar">📦 Registrar pedido</button>
+  <button id="btnCompletarSinCal" class="secondary">📥 Completar sin calificación</button>
+  <button id="btnReset" class="secondary">♻️ Reset / Inicializar</button>
+</div>
+
+<div style="height:10px"></div>
+<div class="control-row">
+  <label>Simular múltiples pedidos</label>
+  <div class="row">
+    <input id="inputSimularN" type="number" min="1" value="5" />
+    <select id="selectSimularCal">
+      <option value="none">Sin calificaciones</option>
+      <option value="aleatorio">Con calificaciones aleatorias (1-5)</option>
+      <option value="fija">Con calificación fija (usar el campo Calificación)</option>
+    </select>
+    <button id="btnSimular" class="small">▶ Simular</button>
+  </div>
+</div>
+  </div>
+
+<script src="JS/repartidor.js"></script>
+</body>
+</html>
